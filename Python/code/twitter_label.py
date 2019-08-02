@@ -47,6 +47,32 @@ for i in range(0, len(badwords)):
     text = badwords.loc[i][0].split(',')
     print(text)
     tweets["label"] = tweets["label"] + [1 if text[0] in ele else 0 for ele in tweets[1]]
+    
+
+#### add the wiki scraping here
+
+badwords = pandas.read_csv('~/Documents/wiki/list5.csv', header = None, encoding = "ISO-8859-1")
+
+for i in range(0, len(badwords)):
+    
+    print(badwords[0][i])
+    tweets["label"] = tweets["label"] + [1 if badwords[0][i] in ele else 0 for ele in tweets[1]]
+
+
+badwords = pandas.read_csv('~/Documents/wiki/list6.csv', header = None, encoding = "ISO-8859-1")
+
+for i in range(0, len(badwords)):
+    
+    print(badwords[0][i])
+    tweets["label"] = tweets["label"] + [1 if badwords[0][i] in ele else 0 for ele in tweets[1]]
+        
+
+badwords = pandas.read_csv('~/Documents/wiki/list7.csv', header = None, encoding = "ISO-8859-1")
+
+for i in range(0, len(badwords)):
+    
+    print(badwords[0][i])
+    tweets["label"] = tweets["label"] + [1 if badwords[0][i] in ele else 0 for ele in tweets[1]]
 
 
 tweets['label'] = np.where(tweets['label']>=1, 1, 0)    
